@@ -186,15 +186,60 @@
 @media (max-width: 768px) {
     .hero-title {
         font-size: 3rem;
+        margin-bottom: 1rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1.1rem;
+        padding: 0 1rem;
+        margin-bottom: 2rem;
     }
 
     .hero {
         height: auto;
-        min-height: 100vh;
+        min-height: 80vh;
+        /* Better for mobile browser bars */
         padding: 6rem 0;
+    }
+
+    .hero-background {
+        height: 100%;
+        /* Simplify parallax for mobile performance */
+        top: 0;
     }
 
     .features-grid {
         gap: 2rem;
+        grid-template-columns: 1fr;
+        /* Stack vertically on mobile */
+        padding: 0 1rem;
+    }
+
+    .feature-card {
+        padding: 2rem;
+    }
+
+    .shop-preview {
+        padding: 4rem 1rem;
+    }
+
+    .preview-content h2 {
+        font-size: 2rem;
+    }
+
+    .preview-content p {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-title {
+        font-size: 2.3rem;
+    }
+
+    .btn-lg {
+        width: 100%;
+        /* Full width button on small screens */
+        padding: 0.8rem 1.5rem;
     }
 }

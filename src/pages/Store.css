@@ -181,19 +181,23 @@
 @media (max-width: 900px) {
     .store-layout {
         grid-template-columns: 1fr;
+        gap: 2rem;
     }
 
     .store-sidebar {
         position: fixed;
         top: 0;
         left: 0;
-        width: 100%;
+        width: 85%;
+        /* Don't cover full screen to show it's a drawer overlay */
+        max-width: 320px;
         height: 100vh;
         z-index: 2000;
         transform: translateX(-100%);
         transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         border-radius: 0;
         overflow-y: auto;
+        box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
     }
 
     .store-sidebar.active {
@@ -221,11 +225,26 @@
 
     .store-controls {
         width: 100%;
-        justify-content: space-between;
+        flex-direction: column;
+        /* Stack controls on mobile */
+        align-items: stretch;
+        gap: 1rem;
     }
 
     .search-bar {
         width: 100%;
         max-width: none;
+    }
+
+    .store-grid {
+        grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+        /* Smaller cards for mobile */
+        gap: 1rem;
+        padding-bottom: 4rem;
+        /* Space for bottom nav or sticky elements */
+    }
+
+    .no-products {
+        padding: 2rem 1rem;
     }
 }
