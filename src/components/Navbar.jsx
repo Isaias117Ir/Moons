@@ -5,7 +5,7 @@ import { useCart } from '../context/CartContext';
 import './Navbar.css';
 
 const Navbar = () => {
-    const { totalItems } = useCart();
+    const { totalItems, toggleCart } = useCart();
     const [isMenuOpen, setIsMenuOpen] = React.useState(false);
 
     return (
@@ -24,10 +24,11 @@ const Navbar = () => {
                 </div>
 
                 <div className="navbar-actions">
-                    <Link to="/cart" className="cart-btn">
+                    <button onClick={toggleCart} className="cart-btn" aria-label="Abrir carrito">
                         <ShoppingBag size={24} />
                         {totalItems > 0 && <span className="cart-badge">{totalItems}</span>}
-                    </Link>
+                    </button>
+
                     <button className="mobile-menu-btn" onClick={() => setIsMenuOpen(!isMenuOpen)}>
                         <Menu size={24} />
                     </button>

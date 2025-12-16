@@ -10,10 +10,13 @@ export const CartProvider = ({ children }) => {
         const savedCart = localStorage.getItem('shopping-cart');
         return savedCart ? JSON.parse(savedCart) : [];
     });
+    const [isCartOpen, setIsCartOpen] = useState(false);
 
     useEffect(() => {
         localStorage.setItem('shopping-cart', JSON.stringify(cart));
     }, [cart]);
+
+    const toggleCart = () => setIsCartOpen(!isCartOpen);
 
     const addToCart = (product) => {
         setCart(currentCart => {
@@ -27,6 +30,7 @@ export const CartProvider = ({ children }) => {
             }
             return [...currentCart, { ...product, quantity: 1 }];
         });
+        setIsCartOpen(true); // Open drawer on add
     };
 
     const removeFromCart = (productId) => {
@@ -55,7 +59,9 @@ export const CartProvider = ({ children }) => {
             updateQuantity,
             clearCart,
             totalItems,
-            totalPrice
+            totalPrice,
+            isCartOpen,
+            toggleCart
         }}>
             {children}
         </CartContext.Provider>

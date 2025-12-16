@@ -18,7 +18,7 @@ export const products = [
   },
   {
     id: 2,
-    name: "Vino tinton y Mango",
+    name: "Vino tinto y Mango",
     price: 110,
     skinType: "Seca",
     benefit: "Hidratante",

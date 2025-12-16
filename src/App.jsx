@@ -5,6 +5,8 @@ import Navbar from './components/Navbar';
 import Home from './pages/Home';
 import Store from './pages/Store';
 import Cart from './pages/Cart';
+import CartDrawer from './components/CartDrawer';
+import Footer from './components/Footer';
 
 function App() {
   return (
@@ -12,11 +14,13 @@ function App() {
       <CartProvider>
         <Router>
           <Navbar />
+          <CartDrawer />
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/store" element={<Store />} />
             <Route path="/cart" element={<Cart />} />
           </Routes>
+          <Footer />
         </Router>
       </CartProvider>
     </div>
